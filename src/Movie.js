@@ -9,8 +9,19 @@ class Movie extends Component{
             movie: {},
         }
     }
+
     componentDidMount(){
         const mid = this.props.match.params.movieId;
+        axios.get(`https://api.themoviedb.org/3/movie/${mid}?api_key=fec8b5ab27b292a68294261bb21b04a5&query=superman`)
+        .then((movieData)=>{
+            this.setState({
+                movie: movieData.data,
+            })
+        })
+    }
+
+    componentWillReceiveProps(newProps){
+        const mid = newProps.match.params.movieId;
         axios.get(`https://api.themoviedb.org/3/movie/${mid}?api_key=fec8b5ab27b292a68294261bb21b04a5&query=superman`)
         .then((movieData)=>{
             this.setState({

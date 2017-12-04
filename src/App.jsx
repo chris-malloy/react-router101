@@ -31,7 +31,7 @@ class App extends Component {
 					)} />
 					<Route path="/about" component={About} />
 					<Route path="/topics" component={Topics} />
-					<Route exact path="/movies" component={Movies} />
+					<Route  path="/movies" component={Movies} />
 					<Route path="/movies/:movieId" component={Movie} />
 				</div>
 			</Router>

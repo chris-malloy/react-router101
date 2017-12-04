@@ -42,3 +42,7 @@
     padding: 10px;
     list-style: none;
 }
+
+.movie-listing {
+    float: left;
+}

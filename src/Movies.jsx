@@ -20,6 +20,20 @@ class Movies extends Component{
             })
         })
     }
+
+    componentWillReceiveProps(newProps){
+        var path = newProps.location.pathname;
+        var pathArray = path.split('/');
+        var mid = pathArray[2];
+        var url = 'https://api.themoviedb.org/3/movie/now_playing?api_key=fec8b5ab27b292a68294261bb21b04a5&query=superman';
+        axios.get(url)
+        .then((movieData)=>{
+            var movieResults = movieData.data.results;
+            this.setState({
+                movieList: movieResults,
+            })
+        })
+    }
     
     render(){
         var movies = this.state.movieList.map((movie,index)=>{
@@ -30,7 +44,7 @@ class Movies extends Component{
             )
         });
         return(
-            <div>
+            <div className="movie-listing">
                 <h1>Movie Component</h1>
                 {movies}
             </div>
