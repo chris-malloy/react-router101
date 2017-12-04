@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 // Add the react router
 // BrowserRouter as Router is the main Component
@@ -9,7 +8,9 @@ import { BrowserRouter as Router, Link, Route } from 'react-router-dom';
 // Components
 import Home from './Home';
 import About from './About';
-import Topics from './Topics'
+import Topics from './Topics';
+import Movies from './Movies';
+import Movie from './Movie';
 
 class App extends Component {
 	render() {
@@ -17,16 +18,21 @@ class App extends Component {
 		return (
 			<Router>
 				<div className="App">
-					<li><Link to="/">Home</Link></li>
-					<li><Link to="/about">About</Link></li>
-					<li><Link to="/topics">Topics</Link></li>
+					<ul>
+						<li><Link to="/">Home</Link></li>
+						<li><Link to="/about">About</Link></li>
+						<li><Link to="/topics">Topics</Link></li>
+						<li><Link to="/movies">Movies</Link></li>
+					</ul>
 					{/* clicking on /about path will inject About.js html into DOM */}
 					{/* a note, use keyword exact to get exactly that path */}
 					<Route exact path="/" render={() => (
 						<Home title="Home Page" teams={['Pats','Vikings','Falcons']} />
 					)} />
 					<Route path="/about" component={About} />
-					<Route path="/Topics" component={Topics} />
+					<Route path="/topics" component={Topics} />
+					<Route exact path="/movies" component={Movies} />
+					<Route path="/movies/:movieId" component={Movie} />
 				</div>
 			</Router>
 		);
@@ -34,3 +40,6 @@ class App extends Component {
 }
 
 export default App;
+
+// TODO 
+// turn list items into navbar

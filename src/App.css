@@ -1,6 +1,6 @@
 .App {
-    margin-top: 100px;
     text-align: center;
+    font-size: 50px;
 }
 
 .App-logo {
@@ -30,4 +30,15 @@
     to {
         transform: rotate(360deg);
     }
+}
+
+.App ul {
+    float: left;
+    width: 100%;
+}
+
+.App>ul>li {
+    float: left;
+    padding: 10px;
+    list-style: none;
 }

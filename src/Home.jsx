@@ -1,7 +1,7 @@
 import React from 'react';
 
 function Home(props){
-    var teams = props.teams.map((teamw)=>{
+    var teams = props.teams.map((team)=>{
         return(<li>{team}</li>)
     })
     return(
